@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Dues</title>
+  <link rel="stylesheet" href="css/vendors.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+  <style>
+    .payment-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .payment-header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .payment-header p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .payment-details {
+      margin-bottom: 20px;
+    }
+
+    .payment-details h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .payment-method {
+      display: flex;
+      align-items: center;
+      background-color: #e8f1fd;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .payment-method img {
+      width: 30px;
+      margin-right: 15px;
+    }
+
+    .payment-method input {
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .confirm-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .confirm-button:hover {
+      background-color: #0056b3;
+    }
+
+    .secure-transaction {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .secure-transaction img {
+      width: 20px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div class="payment-container">
+  <div class="payment-header">
+    <h1>Payment</h1>
+    <p>Membership fee</p>
+    <p style="font-size: 24px; font-weight: bold;">$29.99</p>
+  </div>
+  <div class="payment-details">
+    <h2>Dues payment</h2>
+    <div class="payment-method">
+      <img src="images/credit-card-icon.png" alt="Credit Card">
+      <input type="text" value="**** **** **** 1234" readonly>
+    </div>
+    <h2>Payment method</h2>
+    <div class="payment-method">
+      <img src="images/payment-method-icon.png" alt="Payment Method">
+      <input type="text" value="**** **** **** 5678" readonly>
+    </div>
+  </div>
+  <button class="confirm-button">Confirm</button>
+  <div class="secure-transaction">
+    <img src="images/secure-icon.png" alt="Secure">
+    <span>Secure transaction with our Terms and Conditions.</span>
+  </div>
+</div>
+<script src="js/vendors.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.dumsa_text {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px; /* Adjust the spacing between the logo and text */
+    display: flex;
+    align-items: center;
+}
