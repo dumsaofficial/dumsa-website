@@ -3,123 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pay Dues</title>
+  <title>DUMSA Payment Gateway</title>
   <link rel="stylesheet" href="css/vendors.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
-  <style>
-    .payment-container {
-      max-width: 400px;
-      margin: auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  <link rel="stylesheet" href="css/dumsa.css"/>
+  <link rel="stylesheet" href="css/icon.min.css"/>
 
-    .payment-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .payment-header h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-
-    .payment-header p {
-      margin: 5px 0;
-      color: #555;
-    }
-
-    .payment-details {
-      margin-bottom: 20px;
-    }
-
-    .payment-details h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .payment-method {
-      display: flex;
-      align-items: center;
-      background-color: #e8f1fd;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .payment-method img {
-      width: 30px;
-      margin-right: 15px;
-    }
-
-    .payment-method input {
-      border: none;
-      background: transparent;
-      font-size: 16px;
-      width: 100%;
-    }
-
-    .confirm-button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background-color: #007bff;
-      color: white;
-      text-align: center;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .confirm-button:hover {
-      background-color: #0056b3;
-    }
-
-    .secure-transaction {
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      margin-top: 10px;
-    }
-
-    .secure-transaction img {
-      width: 20px;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-  </style>
 </head>
 <body>
 <div class="payment-container">
   <div class="payment-header">
-    <h1>Payment</h1>
-    <p>Membership fee</p>
-    <p style="font-size: 24px; font-weight: bold;">$29.99</p>
+    <h1>Dues Payment</h1>
+    <p>Annual Membership dues</p>
+    <p style="font-size: 24px; font-weight: bold;">₦4 000</p>
   </div>
   <div class="payment-details">
-    <h2>Dues payment</h2>
-    <div class="payment-method">
-      <img src="images/credit-card-icon.png" alt="Credit Card">
-      <input type="text" value="**** **** **** 1234" readonly>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
     </div>
-    <h2>Payment method</h2>
-    <div class="payment-method">
-      <img src="images/payment-method-icon.png" alt="Payment Method">
-      <input type="text" value="**** **** **** 5678" readonly>
+    <div class="form-group class-drop-down">
+      <label for="class">Class</label>
+      <select id="class" name="class">
+        <option value="" disabled selected>Select your current class</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="class">Email</label>
+      <input type="text" id="email" name="class" placeholder="Enter your email, can omit">
     </div>
   </div>
+  <h2 style="font-size: 24px">Offline Payment</h2>
+  <div class="payment-method">
+    <img src="images/zenith-bank-seeklogo.svg" alt="Payment Method">
+    <div class="account-info">
+      <div class="account-number-text">1219034257</div>
+      <i class=" fas  fa-copy copy-icon"></i>
+    </div>
+    <div class="account-name-info">
+      <div class="account-text">DELSU MEDICAL STUDENTS ASSOCIATION</div>
+      <div class="account-text">ZENITH BANK</div>
+    </div>
+  </div>
+
+
   <button class="confirm-button">Confirm</button>
   <div class="secure-transaction">
-    <img src="images/secure-icon.png" alt="Secure">
-    <span>Secure transaction with our Terms and Conditions.</span>
+    <i class="fas fa-lock"></i>
+    <span>Secure transaction with our <span class="blue-hover">Terms and Conditions</span>.</span>
   </div>
+
 </div>
 <script src="js/vendors.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/paystack_payment_script.js"></script>
+<script src="js/pay_dues_script.js"></script>
 </body>
 </html>
