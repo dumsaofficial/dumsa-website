@@ -1,0 +1,15 @@
+High priority
+create second branch for peace to work in
+more content in home oage
+Testing, need loads and loads of testing
+
+
+
+//////////
+Medium priority
+
+
+/////////////
+Low priority
+1. make site multiple page instance rather than this constellation of html
+2. use react in site

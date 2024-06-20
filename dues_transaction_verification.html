@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indeterminate Circular Progress Bar</title>
+  <link rel="stylesheet" href="css/component_payment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="progress"></div>
+  <div id="progress-text" class="progress-text">75%</div>
+  <div id="message" class="message">Please wait while your payment is being confirmed...</div>
+  <div id="sub-message" class="sub-message">
+    If the process takes too long or fails, please try again or contact customer support.
+  </div>
+  <div class="buttons">
+    <button class="btn" onclick="navigateHome()">Home</button>
+    <button class="btn" onclick="getHelp()">Help</button>
+  </div>
+</div>
+
+<script src="js/pending_payment_dues.js"></script>
+</body>
+</html>
