@@ -1,22 +1,3 @@
-<?php
-require 'dompdf/autoload.inc.php';
-
-use Dompdf\Dompdf;
-use Dompdf\Options;
-
-// Initialize dompdf without specific options
-$dompdf = new Dompdf();
-$imagePath = 'https://www.dumsa.org/api/dumsa_logo_unfazed.png';
-
-// Read image data
-$imageData = file_get_contents($imagePath);
-
-
-// Encode image data to base64
-$base64Image = 'data:image/png;base64,' . base64_encode($imageData);
-
-// Load HTML content
-$html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +7,9 @@ $html = '
     <style>
         body {
             font-family: Arial, sans-serif;
-      
         }
         .container {
-            width: 800px;
+            width: 600px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #000;
@@ -97,7 +77,7 @@ $html = '
 <body>
 <div class="container">
     <div class="header">
-        <img src="' . $base64Image . '" alt="Your Image">
+        <img src="images/dumsa_logo_unfazed.png" alt="Logo Left">
         <h1>DELTA STATE UNIVERSITY MEDICAL STUDENTS ASSOCIATION</h1>
         <p>ABRAKA, DELTA STATE, NIGERIA</p>
         <p>E-mail: <a href="mailto:dumsa.official@gmail.com">dumsa.official@gmail.com</a></p>
@@ -137,18 +117,3 @@ $html = '
 </div>
 </body>
 </html>
-';
-
-$dompdf->loadHtml($html);
-
-$dompdf->loadHtml($html);
-
-$customPaper = array(0,0,900,960);
-$dompdf->setPaper($customPaper);
-
-// Render the HTML as PDF
-$dompdf->render();
-
-// Output the generated PDF to Browser
-$dompdf->stream("sample.pdf", array("Attachment" => false));
-
