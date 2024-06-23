@@ -7,9 +7,13 @@ Testing, need loads and loads of testing
 
 //////////
 Medium priority
+there is an issue in the payment, if the right amount is sent and the wrong amount is also sent
+the transacation of the right amount would be successful and the wrong amount would fail,
+but the callback url doesnt load this way, so a manual redirect is neccessay
 
 
 /////////////
 Low priority
 1. make site multiple page instance rather than this constellation of html
 2. use react in site
+3. get the time in the database from the server rather than the users time via browser
