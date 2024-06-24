@@ -1,6 +1,6 @@
 let callback_url = "http://localhost/dumsa/dues_transaction_verification.html";
 let home_url =  "http://localhost/dumsa/api/";
-let paystack_home_url = home_url + "api/paystack_api/";
+let paystack_home_url = home_url + "paystack_api/";
 let get_authorisation_end_point = paystack_home_url + "get_paystack_auth_url.php";
 let add_auth_details = paystack_home_url + "add_generated_url_details.php";
 let get_prices_url = home_url + "get_dumsa_dues_prices.php";

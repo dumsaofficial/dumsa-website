@@ -1,22 +1,40 @@
 <?php
+
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 require 'dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-// Initialize dompdf without specific options
-$dompdf = new Dompdf();
+// Initialize Dompdf options
+$options = new Options();
+$options->set('isHtml5ParserEnabled', true);
+$options->set('isFontSubsettingEnabled', true);
+
+$dompdf = new Dompdf($options);
 $imagePath = 'https://www.dumsa.org/api/dumsa_logo_unfazed.png';
 
 // Read image data
 $imageData = file_get_contents($imagePath);
 
-
 // Encode image data to base64
 $base64Image = 'data:image/png;base64,' . base64_encode($imageData);
 
+// Define your variables
+$name = "John Doe";
+$sessionPaid = "2023/2024";
+$amountPaid = "5000 NGN";
+$reference = "ABC123456";
+$date = date('Y-m-d');
+$president = "MUEMUIFO GIDEON KANE";
+$secretaryGeneral = "KUBEINJE ROTACHI";
+
 // Load HTML content
-$html = '
+$html = <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +42,9 @@ $html = '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DUMSA Dues e-Receipt</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans&display=swap');
         body {
             font-family: Arial, sans-serif;
-      
         }
         .container {
             width: 800px;
@@ -77,27 +95,30 @@ $html = '
             font-weight: bold;
         }
         .signatures {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0 20px;
+            margin-top: 30px;    
         }
         .signatures .signature {
             text-align: center;
         }
-        .signatures .signature p {
-            margin: 5px 0;
+        .signature {
+            display: inline-block;
+            margin-right: 140px; /* Adjust the value for desired spacing */
+        }
+         .signaturel {
+            display: inline-block;
+            margin-left: 140px; /* Adjust the value for desired spacing */
         }
         .footer {
             text-align: center;
             font-size: 12px;
-            margin-top: 20px;
+            margin-top: 2px;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <img src="' . $base64Image . '" alt="Your Image">
+        <img src="$base64Image" alt="Your Image">
         <h1>DELTA STATE UNIVERSITY MEDICAL STUDENTS ASSOCIATION</h1>
         <p>ABRAKA, DELTA STATE, NIGERIA</p>
         <p>E-mail: <a href="mailto:dumsa.official@gmail.com">dumsa.official@gmail.com</a></p>
@@ -107,25 +128,25 @@ $html = '
         DUMSA DUES e-Receipt
     </div>
     <div class="details">
-        <p><span class="label">NAME:</span> [NAME]</p>
-        <p><span class="label">SESSION PAID:</span> [SESSION PAID]</p>
-        <p><span class="label">AMOUNT PAID:</span> [AMOUNT PAID]</p>
-        <p><span class="label">REF:</span> [REFERENCE]</p>
-        <p><span class="label">DATE:</span> [DATE]</p>
+        <p><span class="label">NAME:</span> $name</p>
+        <p><span class="label">SESSION PAID:</span> $sessionPaid</p>
+        <p><span class="label">AMOUNT PAID:</span> $amountPaid</p>
+        <p><span class="label">REF:</span> $reference</strong></p>
+        <p><span class="label">DATE:</span> $date</p>
     </div>
     <div class="certify">
-        <p>This is to certify that [NAME] paid the DUMSA dues for the [SESSION PAID] session. Please grant him/her due recognition. If this paper is not stamped with the DUMSA seal,</p>
-        <p>please visit <a href="http://www.dumsa.org/dues/[REFERENCE]">www.dumsa.org/dues/[REFERENCE]</a> for verification.</p>
+        <p>This is to certify that $name paid the DUMSA dues for the $sessionPaid session. Please grant him/her due recognition.</p>
+        <p>If this paper is not stamped with the DUMSA seal, please visit <a style="color: #0a24ca" href="http://www.dumsa.org/dues/$reference">www.dumsa.org/dues/$reference</a> for verification.</p>
     </div>
     <div class="signatures">
         <div class="signature">
             <p>__________________________</p>
-            <p>MUEMUIFO GIDEON KANE</p>
+            <p>$president</p>
             <p>PRESIDENT</p>
         </div>
-        <div class="signature">
+        <div class="signaturel">
             <p>__________________________</p>
-            <p>KUBEINJE ROTACHI</p>
+            <p>$secretaryGeneral</p>
             <p>SECRETARY GENERAL</p>
         </div>
     </div>
@@ -137,18 +158,17 @@ $html = '
 </div>
 </body>
 </html>
-';
+HTML;
 
 $dompdf->loadHtml($html);
 
-$dompdf->loadHtml($html);
-
-$customPaper = array(0,0,900,960);
+// Set paper size to auto
+$customPaper = array(0, 0, 690, 640);
 $dompdf->setPaper($customPaper);
 
 // Render the HTML as PDF
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream("sample.pdf", array("Attachment" => false));
-
+$dompdf->stream("receipt_$reference.pdf", array("Attachment" => false));
+?>

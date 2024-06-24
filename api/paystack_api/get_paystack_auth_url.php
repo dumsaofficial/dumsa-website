@@ -2,6 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json"); // Ensure the response is in JSON format
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Get the JSON input
     $inputJSON = file_get_contents('php://input');
@@ -27,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Authorization: Bearer sk_live_4f664898f980a7d1ae1f369ad42841d877729130", // Replace SECRET_KEY with your actual secret key
+           // "Authorization: Bearer sk_live_4f664898f980a7d1ae1f369ad42841d877729130", // Replace SECRET_KEY with your actual secret key
+            "Authorization: Bearer sk_test_5c807c53d3ca0327a4d516abb3e3f194000d385f", // Replace SECRET_KEY with your actual secret key
             "Cache-Control: no-cache",
         ));
 
