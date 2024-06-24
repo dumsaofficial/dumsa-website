@@ -9,29 +9,33 @@
   <link rel="stylesheet" href="css/responsive.css"/>
   <link rel="stylesheet" href="css/dumsa.css"/>
   <link rel="stylesheet" href="css/icon.min.css"/>
-
 </head>
 <body>
 <div class="payment-container">
   <div class="payment-header">
     <h1>Dues Payment</h1>
     <p>Annual Membership dues</p>
-    <p style="font-size: 24px; font-weight: bold;">₦4 000</p>
+    <p style="font-size: 24px; font-weight: bold;">₦ 4,000</p>
   </div>
   <div class="payment-details">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your name">
+      <div id="name-error" class="error"></div>
+
     </div>
     <div class="form-group class-drop-down">
       <label for="class">Class</label>
       <select id="class" name="class">
         <option value="" disabled selected>Select your current class</option>
       </select>
+      <div id="class-error" class="error"></div>
+
     </div>
     <div class="form-group">
       <label for="class">Email</label>
       <input type="text" id="email" name="class" placeholder="Enter your email, can omit">
+      <div id="email-error" class="error"></div>
     </div>
   </div>
   <h2 style="font-size: 24px">Offline Payment</h2>

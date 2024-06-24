@@ -38,8 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $amount = $input['amount'];
         $reference = $input['reference'];
         $callback = $input['callback'];
-        $user_hash = $input['user_hash'];
         $name = $input['name'];
+        $name = strtoupper($name);
+        $crc32Hash = crc32($name);
+        $user_hash = $crc32Hash;
         $level = $input['level'];
         $transaction_date = $input['transaction_date'];
         $access_code = $input['access_code'];

@@ -188,3 +188,12 @@
 .blue-hover:hover {
     color: #007bff;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.error-input {
+    border-color: red;
+}

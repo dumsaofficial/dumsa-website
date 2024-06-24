@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Check if the necessary parameters are set
     if (isset($input['email']) && isset($input['callback_url'])) {
         $email = $input['email'];
-        $amount = 100 * 100;//todo: fetch from database
+        $amount = $input['amount'];
         $callback_url = $input['callback_url'];
         $cancel_action = isset($input['cancel_action']) ? $input['cancel_action'] : '';
         $url = "https://api.paystack.co/transaction/initialize";
