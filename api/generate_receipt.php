@@ -23,13 +23,14 @@ $imageData = file_get_contents($imagePath);
 
 // Encode image data to base64
 $base64Image = 'data:image/png;base64,' . base64_encode($imageData);
+$data = json_decode(file_get_contents('php://input'), true);
 
 // Define your variables
-$name = "John Doe";
-$sessionPaid = "2023/2024";
-$amountPaid = "5000 NGN";
-$reference = "ABC123456";
 $date = date('Y-m-d');
+$name = $data['name'];
+$sessionPaid = $data['sessionPaid'];
+$amountPaid = $data['amountPaid'];
+$reference = $data['reference'];
 $president = "MUEMUIFO GIDEON KANE";
 $secretaryGeneral = "KUBEINJE ROTACHI";
 
@@ -163,7 +164,7 @@ HTML;
 $dompdf->loadHtml($html);
 
 // Set paper size to auto
-$customPaper = array(0, 0, 690, 640);
+$customPaper = array(0, 0, 710, 710);
 $dompdf->setPaper($customPaper);
 
 // Render the HTML as PDF

@@ -2,20 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-
-// Database connection details
-$servername = "localhost";
-$username = "root"; //todo: replace in production
-$password = ""; // todo: replace in production
-$dbname = "dumsa_main"; // Change to your actual database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode(['status' => false, 'message' => 'Database connection failed: ' . $conn->connect_error]));
-}
+$conn = ""; // Your database connection details here
+require 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the JSON input

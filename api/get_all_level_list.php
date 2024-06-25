@@ -3,19 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-// Database connection details
-$servername = "localhost";
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "dumsa_main"; // Replace with your database name
+$conn = ""; // Your database connection details here
+require 'header.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode(['status' => false, 'message' => 'Database connection failed: ' . $conn->connect_error]));
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Query to get unique classes
