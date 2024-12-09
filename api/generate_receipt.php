@@ -16,7 +16,7 @@ $options->set('isHtml5ParserEnabled', true);
 $options->set('isFontSubsettingEnabled', true);
 
 $dompdf = new Dompdf($options);
-$imagePath = 'https://www.dumsa.org/api/dumsa_logo_unfazed.png';
+$imagePath = 'http://localhost/dumsa/api/dumsa_logo_unfazed.png';
 
 // Read image data
 $imageData = file_get_contents($imagePath);
